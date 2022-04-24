@@ -29,13 +29,12 @@
         </li>
     </ul>
 </div>
-
 <?php 
- $config_exibir_contatos = $token[0]->insta_token; //if ($config_exibir_contatos == '1') { 
-echo $config_exibir_contatos
+    $this->load->model('os_model');
+    $texto_de_notificacao = $this->data['texto_de_notificacao'];
+   
+        echo $texto_de_notificacao;
 
-
- 
     
     ?>
 <div>
