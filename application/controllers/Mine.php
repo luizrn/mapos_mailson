@@ -633,49 +633,6 @@ class Mine extends CI_Controller
         }
     }
 
-
-    public function visualizarConfigs()
-    {
-        if (!$this->uri->segment(3) || !is_numeric($this->uri->segment(3))) {
-            $this->session->set_flashdata('error', 'Item não pode ser encontrado, parâmetro não foi passado corretamente.');
-            redirect('mapos');
-        }
-
-        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'vOs')) {
-            $this->session->set_flashdata('error', 'Você não tem permissão para visualizar O.S.');
-            redirect(base_url());
-        }
-
-        $this->data['custom_error'] = '';
-        $this->data['texto_de_notificacao'] = $this->data['configuration']['notifica_whats'];
-
-        $this->load->model('mapos_model');
-        $this->data['result'] = $this->os_model->getById($this->uri->segment(3));
-        $this->data['produtos'] = $this->os_model->getProdutos($this->uri->segment(3));
-        $this->data['servicos'] = $this->os_model->getServicos($this->uri->segment(3));
-        $this->data['emitente'] = $this->mapos_model->getEmitente();
-        $this->data['anexos'] = $this->os_model->getAnexos($this->uri->segment(3));
-        $this->data['anotacoes'] = $this->os_model->getAnotacoes($this->uri->segment(3));
-        $this->data['editavel'] = $this->os_model->isEditable($this->uri->segment(3));
-        $this->data['modalGerarPagamento'] = $this->load->view(
-            'cobrancas/modalGerarPagamento',
-            [
-                'id' => $this->uri->segment(3),
-                'tipo' => 'os',
-            ],
-            true
-        );
-        $this->data['view'] = 'os/visualizarOs';
-
-        if ($return = $this->os_model->valorTotalOS($this->uri->segment(3))) {
-            $this->data['totalServico'] = $return['totalServico'];
-            $this->data['totalProdutos'] = $return['totalProdutos'];
-        }
-
-        return $this->layout();
-    }
-
-
     // Cadastro de OS pelo cliente
     public function adicionarOs()
     {
