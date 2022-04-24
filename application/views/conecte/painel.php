@@ -8,8 +8,6 @@
 
 <div class="quick-actions_homepage">
     <ul class="cardBox">
-   
-
         <li class="card"> <a href="<?php echo base_url() ?>index.php/mine/os"><i class='bx bx-spreadsheet iconBx'></i>
           <div style="font-size: 1.2em" class="numbers">Ordens de Serviço</div></a>
         </li>
@@ -29,17 +27,9 @@
         </li>
     </ul>
 </div>
-<?php 
-    $this->load->model('os_model');
-    $texto_de_notificacao = $this->data['texto_de_notificacao'];
-   
-        echo $texto_de_notificacao;
 
-    
-    ?>
 <div>
     <h5 style="margin-bottom:12px; color:var(--violeta1)" class="cardHeader">Últimos Trabalhos</h5>
-   
 </div>
 <div id="instafeed" class="owl-carousel owl-theme owl-loaded owl-drag"></div>
 
@@ -71,7 +61,7 @@
     });
     feed.run();
 </script>
-<?php//} ?>
+
 <div class="span12" style="margin-left: 0">
     <div class="widget-box">
         <div class="widget-title" style="margin: -20px 0 0">
