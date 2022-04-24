@@ -439,7 +439,7 @@ class Mapos extends MY_Controller
                 'control_editos' => $this->input->post('control_editos'),
                 'control_edit_vendas' => $this->input->post('control_edit_vendas'),
                 'control_datatable' => $this->input->post('control_datatable'),
-                'exibir_feed_instagram' => $this->input->post('exibir_instagram'),
+                'exibir_feed_instagram' => $this->input->post('exibir_feed_instagram'),
                 'insta_token' => $this->input->post('insta_token'),
                 'insta_link' => $this->input->post('insta_link'),
                 'link_whatsapp' => $this->input->post('link_whatsapp'),
