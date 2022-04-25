@@ -18,16 +18,23 @@
           <div style="font-size: 1.2em" class="numbers">Minha Conta</div></a>
         </li>
         <!-- Adicione seu link do instagram entre aspas no href abaixo -->
-        <li class="card"> <a href="https://www.instagram.com/m_cell_assistec/" target="_blank"><i class='bx bxl-instagram iconBx'></i>
+        <li class="card"> <a href="<?php echo $token_insta_view =  $configuracoes[15]->valor; ?>" target="_blank"><i class='bx bxl-instagram iconBx'></i>
           <div style="font-size: 1.2em" class="numbers">Siga Nosso Instagram</div></a>
         </li>
         <!-- Adicione seu link do whatsApp entre aspas no href abaixo -->
-        <li class="card"> <a href="https://a.umbler.com/gerador-de-link-whatsapp?gclid=Cj0KCQjwgYSTBhDKARIsAB8KukvHgbJcfbYWVYX12K_CwP5YgFYgZogAz1WVR_-zAihrWcr0rf5h9KUaAoH3EALw_wcB" target="_blank"><i class='bx bxl-whatsapp iconBx'></i></i>
+        <li class="card"> <a href="<?php echo $token_insta_view =  $configuracoes[16]->valor; ?>" target="_blank"><i class='bx bxl-whatsapp iconBx'></i></i>
           <div style="font-size: 1.2em" class="numbers">Fale Conosco</div></a>
         </li>
     </ul>
 </div>
+<?php
+$token_insta_view =  $configuracoes[14]->valor;
 
+
+//echo $configuration["insta_token"];
+
+
+if ( $configuracoes[13]->valor == '1') { //Se nao for 1 Desativa todo o codigo abaixo  ?>
 <div>
     <h5 style="margin-bottom:12px; color:var(--violeta1)" class="cardHeader">Últimos Trabalhos</h5>
 </div>
@@ -35,7 +42,7 @@
 
 <script type="text/javascript">
     var feed = new Instafeed({
-        accessToken: 'COLE SEU TOKEN AQUI !', 
+        accessToken: '<?php echo $token_insta_view ?>', 
         limit: 8,
         template:'<div class="item"><a href="{{link}}" target="_blank"><img title="{{caption}}" src="{{image}}" /></a></div>',
         after: function(){
@@ -61,7 +68,7 @@
     });
     feed.run();
 </script>
-
+<?php } ?>
 <div class="span12" style="margin-left: 0">
     <div class="widget-box">
         <div class="widget-title" style="margin: -20px 0 0">

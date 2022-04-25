@@ -8,11 +8,13 @@ class Mine extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Conecte_model');
+
     }
 
     public function index()
     {
         $this->load->view('conecte/login');
+        
     }
 
     public function sair()
@@ -247,8 +249,12 @@ class Mine extends CI_Controller
         $data['menuPainel'] = 'painel';
         $data['compras'] = $this->Conecte_model->getLastCompras($this->session->userdata('cliente_id'));
         $data['os'] = $this->Conecte_model->getLastOs($this->session->userdata('cliente_id'));
+        $data['configuracoes'] = $this->Conecte_model->getLastOs2('configuracoes');
         $data['output'] = 'conecte/painel';
+       // $data['insta_token'] =  $this->data['configuration']['insta_token'];
+
         $this->load->view('conecte/template', $data);
+
     }
 
     public function conta()
