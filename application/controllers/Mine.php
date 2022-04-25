@@ -2,7 +2,7 @@
     exit('No direct script access allowed');
 }
 
-class Mine extends CI_Controller
+class Mine extends My_Controller
 {
     public function __construct()
     {
@@ -249,9 +249,17 @@ class Mine extends CI_Controller
         $data['menuPainel'] = 'painel';
         $data['compras'] = $this->Conecte_model->getLastCompras($this->session->userdata('cliente_id'));
         $data['os'] = $this->Conecte_model->getLastOs($this->session->userdata('cliente_id'));
-        $data['configuracoes'] = $this->Conecte_model->getLastOs2('configuracoes');
+    
+        $data['exibir_feed_instagram'] =  $this->data['configuration']['exibir_feed_instagram'];
+        $data['insta_token'] =  $this->data['configuration']['insta_token'];
+        $data['insta_link'] =  $this->data['configuration']['insta_link'];
+        $data['link_whatsapp'] =  $this->data['configuration']['link_whatsapp'];
+
+      
         $data['output'] = 'conecte/painel';
-       // $data['insta_token'] =  $this->data['configuration']['insta_token'];
+        
+
+       
 
         $this->load->view('conecte/template', $data);
 

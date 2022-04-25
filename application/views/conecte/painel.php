@@ -18,31 +18,25 @@
           <div style="font-size: 1.2em" class="numbers">Minha Conta</div></a>
         </li>
         <!-- Adicione seu link do instagram entre aspas no href abaixo -->
-        <li class="card"> <a href="<?php echo $token_insta_view =  $configuracoes[15]->valor; ?>" target="_blank"><i class='bx bxl-instagram iconBx'></i>
+        <li class="card"> <a href="<?php echo $insta_link; ?>" target="_blank"><i class='bx bxl-instagram iconBx'></i>
           <div style="font-size: 1.2em" class="numbers">Siga Nosso Instagram</div></a>
         </li>
         <!-- Adicione seu link do whatsApp entre aspas no href abaixo -->
-        <li class="card"> <a href="<?php echo $token_insta_view =  $configuracoes[16]->valor; ?>" target="_blank"><i class='bx bxl-whatsapp iconBx'></i></i>
+        <li class="card"> <a href="<?php echo $link_whatsapp; ?>" target="_blank"><i class='bx bxl-whatsapp iconBx'></i></i>
           <div style="font-size: 1.2em" class="numbers">Fale Conosco</div></a>
         </li>
     </ul>
 </div>
-<?php
-$token_insta_view =  $configuracoes[14]->valor;
-
-
-//echo $configuration["insta_token"];
-
-
-if ( $configuracoes[13]->valor == '1') { //Se nao for 1 Desativa todo o codigo abaixo  ?>
+<?php if ($exibir_feed_instagram == '1') { //Se nao for 1 Desativa todo o codigo abaixo  ?>
 <div>
     <h5 style="margin-bottom:12px; color:var(--violeta1)" class="cardHeader">Últimos Trabalhos</h5>
+   
 </div>
 <div id="instafeed" class="owl-carousel owl-theme owl-loaded owl-drag"></div>
 
 <script type="text/javascript">
     var feed = new Instafeed({
-        accessToken: '<?php echo $token_insta_view ?>', 
+        accessToken: '<?php echo $insta_token ?>', 
         limit: 8,
         template:'<div class="item"><a href="{{link}}" target="_blank"><img title="{{caption}}" src="{{image}}" /></a></div>',
         after: function(){

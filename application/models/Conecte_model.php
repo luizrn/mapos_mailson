@@ -35,13 +35,6 @@ class Conecte_model extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function getLastOs2()
-    {
-        $this->db->select('valor');
-        $this->db->from('configuracoes');
-        return $this->db->get()->result();
-    }
-
     public function getLastCompras($cliente)
     {
         $this->db->select('vendas.*,usuarios.nome');
